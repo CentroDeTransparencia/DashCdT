@@ -322,55 +322,55 @@ fp = r"" #Reemplazar con la ruta correpondiente
 #div_fauna_tro = gpd.read_file(os.path.join(fp, "div_fauna_tro.shp")) #Ojo! Este es un GeoDataFrame
 
 #fauna
-df_raw = pd.read_csv("Fauna_Specie_Kale_ Trayecto.csv")
+df_raw = pd.read_csv("pages/Datasets/Ecosistemas/Fauna_Specie_Kale_ Trayecto.csv")
 df1 = df_raw.sort_values(by='Sum of NUM_IND',ascending=False)
 df1a = df_raw.sort_values(by='Sum of ABUND_ABS',ascending=False)
 df1b = df_raw.sort_values(by='Sum of ABUND_REL',ascending=False)
 
-df_raw2 = pd.read_csv("Fauna_Specie_Platero_ Trayecto.csv")
+df_raw2 = pd.read_csv("pages/Datasets/Ecosistemas/Fauna_Specie_Platero_ Trayecto.csv")
 df2 = df_raw.sort_values(by='Sum of NUM_IND',ascending=False)
 df2a = df_raw.sort_values(by='Sum of ABUND_ABS',ascending=False)
 df2b = df_raw.sort_values(by='Sum of ABUND_REL',ascending=False)
 
 #Vegtacion
-dv_raw = pd.read_csv("Especies_Vegetales_Kale.csv")
+dv_raw = pd.read_csv("pages/Datasets/Ecosistemas/Especies_Vegetales_Kale.csv")
 dv1 = dv_raw.sort_values(by='Average of BIOM_INDIV',ascending=False)
 dv1a = dv_raw.sort_values(by='Average of CARB_INDIV',ascending=False)
 dv1b = dv_raw.sort_values(by='Count of ID_INDV_MU',ascending=False)
 
-dv_raw2 = pd.read_csv("Especies_Vegetales_Platero.csv")
+dv_raw2 = pd.read_csv("pages/Datasets/Ecosistemas/Especies_Vegetales_Platero.csv")
 dv2 = dv_raw2.sort_values(by='Average of BIOM_INDIV',ascending=False)
 dv2a = dv_raw2.sort_values(by='Average of CARB_INDIV',ascending=False)
 dv2b = dv_raw.sort_values(by='Count of ID_INDV_MU',ascending=False)
 
 #Hidrobiota
-dh_raw = pd.read_csv("HidrobiotaKale1.csv")
+dh_raw = pd.read_csv("pages/Datasets/Ecosistemas/HidrobiotaKale1.csv")
 dh1 = dh_raw.sort_values(by='DENS_CANTI',ascending=False)
 dh1a = dh_raw.sort_values(by='UNIDAD_DEN',ascending=False)
 dh1b = dh_raw.sort_values(by='ABUND_REL',ascending=False)
 
-dh_raw2 = pd.read_csv("HidrobiotaPlatero1.csv")
+dh_raw2 = pd.read_csv("pages/Datasets/Ecosistemas/HidrobiotaPlatero1.csv")
 dh2 = dh_raw.sort_values(by='DENS_CANTI',ascending=False)
 dh2a = dh_raw.sort_values(by='UNIDAD_DEN',ascending=False)
 dh2b = dh_raw.sort_values(by='ABUND_REL',ascending=False)
 
 #Metabarcoding
-dmt_raw1 = pd.read_csv("MetabarcodingKale1.csv")
+dmt_raw1 = pd.read_csv("pages/Datasets/Ecosistemas/MetabarcodingKale1.csv")
 dmt = dmt_raw1.sort_values(by='Sum of NUM_OTU',ascending=False)
 dmta = dmt_raw1.sort_values(by='Sum of NUM_REP',ascending=False)
 dmtb = dmt_raw1.sort_values(by='Sum of N_LECT_TOT',ascending=False)
 
-dmt_raw2 = pd.read_csv("MetabarcodingPlatero1.csv")
+dmt_raw2 = pd.read_csv("pages/Datasets/Ecosistemas/MetabarcodingPlatero1.csv")
 dmt2 = dmt_raw1.sort_values(by='Sum of NUM_OTU',ascending=False)
 dmt2a = dmt_raw2.sort_values(by='Sum of NUM_REP',ascending=False)
 dmt2b = dmt_raw2.sort_values(by='Sum of N_LECT_TOT',ascending=False)
 
-dmt_raw3 = pd.read_csv("MetabarcodingKale2.csv")
+dmt_raw3 = pd.read_csv("pages/Datasets/Ecosistemas/MetabarcodingKale2.csv")
 dmt3 = dmt_raw3.sort_values(by='Sum of NUM_OTU',ascending=False)
 dmt3a = dmt_raw3.sort_values(by='Sum of NUM_REP',ascending=False)
 dmt3b = dmt_raw3.sort_values(by='Sum of N_LECT_TOT',ascending=False)
 
-dmt_raw4 = pd.read_csv("MetabarcodingPlatero2.csv")
+dmt_raw4 = pd.read_csv("pages/Datasets/Ecosistemas/MetabarcodingPlatero2.csv")
 dmt4 = dmt_raw4.sort_values(by='Sum of NUM_OTU',ascending=False)
 dmt4a = dmt_raw4.sort_values(by='Sum of NUM_REP',ascending=False)
 dmt4b = dmt_raw4.sort_values(by='Sum of N_LECT_TOT',ascending=False)
