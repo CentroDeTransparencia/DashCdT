@@ -237,7 +237,7 @@ def graf_bar_v3(DataFrame):
     fig = go.Figure()
     fig.add_trace(go.Bar(
     x=DataFrame["Species"],
-    y=DataFrame["Count of ID_INDV_MU"],
+    y=DataFrame["Sum of ID_INDV_MU"],
     ))
     fig.update_layout(legend_title_text = "Vegetacion")
     fig.update_xaxes(title_text="Especies")
@@ -245,8 +245,8 @@ def graf_bar_v3(DataFrame):
     return fig 
 def graf_scatt(DataFrame):
     fig = go.Figure()
-    fig = px.scatter(DataFrame, x="Average of BIOM_INDIV", y="Average of CARB_INDIV",
-                     size="Count of ID_INDV_MU", color="Species", hover_name="Species", size_max=55)
+    fig = px.scatter(DataFrame, x="Sum of VOL_COM", y="Average of CARB_INDIV",
+                     size="Sum of ID_INDV_MU", color="Species", hover_name="Species", size_max=55)
     fig.update_layout(transition_duration=500)
     return fig
 def graf_bar_h(DataFrame):
@@ -336,12 +336,12 @@ df2b = df_raw.sort_values(by='Sum of ABUND_REL',ascending=False)
 dv_raw = pd.read_csv("pages/Datasets/Ecosistemas/Especies_Vegetales_Kale.csv")
 dv1 = dv_raw.sort_values(by='Average of BIOM_INDIV',ascending=False)
 dv1a = dv_raw.sort_values(by='Average of CARB_INDIV',ascending=False)
-dv1b = dv_raw.sort_values(by='Count of ID_INDV_MU',ascending=False)
+dv1b = dv_raw.sort_values(by='Sum of ID_INDV_MU',ascending=False)
 
 dv_raw2 = pd.read_csv("pages/Datasets/Ecosistemas/Especies_Vegetales_Platero.csv")
 dv2 = dv_raw2.sort_values(by='Average of BIOM_INDIV',ascending=False)
 dv2a = dv_raw2.sort_values(by='Average of CARB_INDIV',ascending=False)
-dv2b = dv_raw.sort_values(by='Count of ID_INDV_MU',ascending=False)
+dv2b = dv_raw.sort_values(by='Sum of ID_INDV_MU',ascending=False)
 
 #Hidrobiota
 dh_raw = pd.read_csv("pages/Datasets/Ecosistemas/HidrobiotaKale1.csv")
@@ -444,8 +444,9 @@ fauna_kale = dbc.Card(
     dbc.CardBody([
             html.Div([
                 html.H3("Componente Fauna de Kale", className="card-text"),
-                html.P("Aquí debería ir un texto etc etc etc etc et"),
-                html.P("")
+                html.P("701 especies pertenecientes a 516 géneros, 138 familias y 44 órdenes"),
+                html.P("Como parte de los compromisos del Estudio de Impacto Ambiental, se hizo el ejercicio con tres especies representativas de la región"),
+                html.P("Hacer pública esta información permite a la empresa, las autoridades ambientales y la comunidad conocer dónde se deben priorizar los esfuerzos de conservación ambiental")
             ]),
             html.Div([
                 html.H5("Puntos de monitoreo", className="card-text"),
@@ -475,7 +476,7 @@ flora_kale = dbc.Card(
     dbc.CardBody([
             html.Div([
                 html.H3("Componente Flora de Kale", className="card-text"),
-                html.P("Aquí debería ir un texto etc etc etc etc et"),
+                html.P("Flora arbórea: 279 especies pertenecientes a 160 géneros, 59 familias y 24 órdenes"),
                 html.P("")
             ]),
             html.Div([
@@ -500,7 +501,7 @@ hidrobiota_kale = dbc.Card(
     dbc.CardBody([
             html.Div([
                 html.H3("Componente Hidrobiota de Kale", className="card-text"),
-                html.P("Aquí debería ir un texto etc etc etc etc et"),
+                html.P("Hidrobiota: 211 familias pertenecientes a 102 órdenes y 38 clases"),
                 html.P("")
             ]),
             html.Div([
@@ -524,7 +525,7 @@ metabarcoding_kale = dbc.Card(
     dbc.CardBody([
             html.Div([
                 html.H3("Componente Metabarcoding de Kale", className="card-text"),
-                html.P("Aquí debería ir un texto etc etc etc etc et"),
+                html.P("Metabarcoding es el código de barras de ADN/ARN de una manera que permite la identificación simultánea de muchos taxones dentro de la misma muestra"),
                 html.P("")
             ]),
             html.Div([
@@ -548,7 +549,12 @@ paisaje_kale = dbc.Card(
     dbc.CardBody([
             html.H3("Componente paisaje", className="card-text"),
             html.Div([
-                dcc.Graph(figure=fig1, id = "figv2")
+                html.H3("Componente Paisaje de Platero", className="card-text"),
+                html.P("22 ecosistemas distintos identificados en el área de influencia"),
+                html.P("Conectividad ecológica: Corredores conformados por vegetación nativa o secundaria que son importantes para el tránsito de especies")
+            ]),
+            html.Div([
+                dcc.Graph(figure=fig1, id = "figsc_v")
             ])
         ]
     ),
@@ -568,8 +574,9 @@ fauna_platero = dbc.Card(
     dbc.CardBody([
             html.Div([
                 html.H3("Componente Fauna de Platero", className="card-text"),
-                html.P("Aquí debería ir un texto etc etc etc etc et"),
-                html.P("")
+                html.P("701 especies pertenecientes a 516 géneros, 138 familias y 44 órdenes."),
+                html.P("Como parte de los compromisos del Estudio de Impacto Ambiental, se hizo el ejercicio con tres especies representativas de la región"),
+                html.P("Hacer pública esta información permite a la empresa, las autoridades ambientales y la comunidad conocer dónde se deben priorizar los esfuerzos de conservación ambiental")
             ]),
             html.Div([
                 html.H3("Puntos de monitoreo", className="card-text"),
@@ -593,7 +600,7 @@ flora_platero = dbc.Card(
     dbc.CardBody([
             html.Div([
                 html.H3("Componente Flora de Platero", className="card-text"),
-                html.P("Aquí debería ir un texto etc etc etc etc et"),
+                html.P("Flora arbórea: 279 especies pertenecientes a 160 géneros, 59 familias y 24 órdenes"),
                 html.P("")
             ]),
             html.Div([
@@ -618,7 +625,7 @@ hidrobiota_platero = dbc.Card(
     dbc.CardBody([
             html.Div([
                 html.H3("Componente Hidrobiotico de Platero", className="card-text"),
-                html.P("Aquí debería ir un texto etc etc etc etc et"),
+                html.P("Hidrobiota: 211 familias pertenecientes a 102 órdenes y 38 clases"),
                 html.P("")
             ]),
             html.Div([
@@ -642,7 +649,7 @@ metabarcoding_platero = dbc.Card(
     dbc.CardBody([
             html.Div([
                 html.H3("Componente Metabarcoding de Platero", className="card-text"),
-                html.P("Aquí debería ir un texto etc etc etc etc et"),
+                html.P("Metabarcoding es el código de barras de ADN/ARN de una manera que permite la identificación simultánea de muchos taxones dentro de la misma muestra"),
                 html.P("")
             ]),
             html.Div([
@@ -663,11 +670,16 @@ metabarcoding_platero = dbc.Card(
     className="mt-3",
 )
 paisaje_platero = dbc.Card(
-    dbc.CardBody(
-        [
-            html.H3("Componente Paisaje de Platero", className="card-text"),
+    dbc.CardBody([
             html.Div([
-            ])
+                html.H3("Componente Paisaje de Platero", className="card-text"),
+                html.P("22 ecosistemas distintos identificados en el área de influencia"),
+                html.P("Conectividad ecológica: Corredores conformados por vegetación nativa o secundaria que son importantes para el tránsito de especies")
+            ]),
+            html.Div([
+                dcc.Graph(figure=fig1, id = "figsc_v2"),
+                html.P("Acciones de compensación ambiental: Buscan adelantar acciones para recuperar o restaurar ecosistemas degradados como compensación por los impactos ambientales no evitables")
+            ])    
         ]
     ),
     className="mt-3",
@@ -708,8 +720,8 @@ layout = html.Div([
              )],className="map column")],id="header",className="row flex-display"),
 
     html.Div([
-        html.H6('Este es el componente de ecosistenas asociado a los PPII... (etc etc'),
-        html.H6('Por favor selecciona un proyecto para ver la información asociada al mismo:'),
+        html.H6('Cuál es el propósito de la Curaduría?'),
+        html.H6('Evaluación de los impactos derivados de los PPII en los ecosistemas terrestres y acuáticos y aplicación de las medidas de manejo pertinentes'),
         
         dcc.Tabs(persistence= True, id="select_proyecto", value='tab', parent_className='custom-tabs',
                     className='custom-tabs-container',children=[
